@@ -112,9 +112,7 @@ header {
 .carousel-caption {
     bottom: 3rem;
     z-index: 10;
-    background: rgba(0, 0, 0, 0.4);
     padding: 2rem;
-    border-radius: 10px;
 }
 
 .carousel-caption h1 {
