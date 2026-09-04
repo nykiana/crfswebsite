@@ -7,6 +7,7 @@
     <title>Christian Respite Family Service</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link href="../css/style.css" rel="stylesheet">
     <link rel="icon" type="image/png" href="favicon.png">
 </head>
@@ -17,18 +18,18 @@
     <header>
         <nav class="top-row">
             <div class="logo">
-                <a href="/" onclick="location.reload(); return false;">
+                <a href="index.html">
                     <img src="../images/logo.svg" alt="Christian Respite Family Service">
                 </a>
             </div>
 
             <div class="nav-right">
-                <a href="#home" class="active">Home</a>
-                <a href="#about">About</a>
-                <a href="#ministry">Ministry</a>
-                <a href="#services">Services</a>
-                <a href="#contact">Contact</a>
-                <a href="#summer-camp">Summer Camp</a>
+                <a href="index.html" class="active">Home</a>
+                <a href="about.html">About</a>
+                <a href="ministry.html">Ministry</a>
+                <a href="services.html">Services</a>
+                <a href="contact.html">Contact</a>
+                <a href="summer_camp.html">Summer Camp</a>
             </div>
         </nav>
     </header>
@@ -68,8 +69,8 @@
                         <h1>Making a Difference Together</h1>
                         <p>Join us in serving our community with love and compassion.</p>
                         <p>
-                            <a class="carousel-btn" href="#summer-camp">
-                                Summer Camp
+                            <a class="carousel-btn" href="about.html">
+                                Learn More
                             </a>
                         </p>
                     </div>
@@ -83,8 +84,8 @@
                         <h1>Children's Summer Camp</h1>
                         <p>Faith, fun, and friendship for children of all ages.</p>
                         <p>
-                            <a class="carousel-btn" href="#summer-camp">
-                                Register Now
+                            <a class="carousel-btn" href="summer_camp.html">
+                                Summer Camp
                             </a>
                         </p>
                     </div>
@@ -106,85 +107,87 @@
 
     </div>
 
-    <!-- Row 3 Hero Cards (Stats) -->
-    <div class="hero-container">
-
-        <div class="hero-card" data-target="1">
-            <img src="herocard1.png" class="hero-img" alt="Volunteers">
-            <h2>15</h2>
-            <p>Local volunteers</p>
-        </div>
-
-        <div class="hero-card" data-target="2">
-            <img src="herocard2.jpg" class="hero-img" alt="Children Served">
-            <h2>114</h2>
-            <p>Children served</p>
-        </div>
-
-        <div class="hero-card" data-target="3">
-            <img src="herocard3.png" class="hero-img" alt="Donations">
-            <h2>$5000</h2>
-            <p>Donated</p>
-        </div>
-
-    </div>
-
-    <!-- Row 4 Info Row -->
-    <div id="hero-info" class="hero-info-section">
-        <div class="container">
-            <div id="hero-info-content"></div>
-        </div>
-    </div>
-
-    <!-- Row 5 Services Section -->
+    <!-- Row 3 Services Section -->
     <section id="services" class="services-section">
         <div class="container">
-            <div class="section-header">
-                <h2>Our Services</h2>
-                <p>Sharing God's love through practical service and support</p>
-            </div>
-
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">🙏</div>
-                    <h3>Spiritual Counseling</h3>
-                    <p>Providing faith-based guidance and support for individuals and families facing life's challenges.</p>
+            <div class="services-content">
+                <div class="services-text">
+                    <span class="services-tag">✦ Our Services</span>
+                    <h2>Supporting Families &amp; Building Community</h2>
+                    
+                    <p class="services-description">
+                        Christian Respite Family Service offers a wide range of support for children and youth with special needs. We also have a fellowship program offered to adults. We are equipped to assist persons with autism, selective mutism, a range of social-emotional and behavioural issues, and other forms of disabilities.
+                    </p>
+                    
+                    <p class="services-description">
+                        A list of services we currently offer include: mentorship, private tutoring, counselling and therapy, spiritual guidance, children and parent fellowships, care groups and additional respite services.
+                    </p>
+                    
+                    <div class="services-btn-wrapper">
+                        <a href="services.html" class="services-btn">
+                            <span>Our Services</span>
+                            <svg class="btn-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </a>
+                    </div>
                 </div>
-
-                <div class="service-card">
-                    <div class="service-icon">🤝</div>
-                    <h3>Community Outreach</h3>
-                    <p>Meeting practical needs through food distribution, clothing drives, and community support programs.</p>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">📖</div>
-                    <h3>Bible Study Groups</h3>
-                    <p>Weekly gatherings for spiritual growth, fellowship, and deeper understanding of God's word.</p>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">🎵</div>
-                    <h3>Worship Services</h3>
-                    <p>Sunday services with contemporary worship, prayer, and relevant biblical teaching for all ages.</p>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">🧸</div>
-                    <h3>Children's Ministry</h3>
-                    <p>Age-appropriate programs that teach children about God's love through stories, crafts, and activities.</p>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">👨‍👩‍👧‍👦</div>
-                    <h3>Family Support</h3>
-                    <p>Resources and support for families including parenting workshops, marriage counseling, and family events.</p>
+                
+                <div class="services-visual">
+                    <div class="visual-card">
+                        <div class="visual-icon">❤️</div>
+                        <h4>Family-Focused</h4>
+                        <p>Supporting the whole family unit</p>
+                    </div>
+                    <div class="visual-card">
+                        <div class="visual-icon">🌟</div>
+                        <h4>Faith-Based</h4>
+                        <p>Rooted in Christian values</p>
+                    </div>
+                    <div class="visual-card">
+                        <div class="visual-icon">🤝</div>
+                        <h4>Community Driven</h4>
+                        <p>Building connections that last</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Row 6 Footer -->
+    <!-- Gradient Divider -->
+    <div class="section-divider">
+        <div class="divider-line"></div>
+    </div>
+
+    <!-- Row 3 Hero Cards (Stats) -->
+    <div class="hero-container">
+        <div class="hero-card" data-target="1">
+            <div class="hero-stat-row">
+                <i class="fas fa-hands-helping hero-icon"></i>
+                <h2>15</h2>
+            </div>
+            <p>Local volunteers</p>
+        </div>
+
+        <div class="hero-card" data-target="2">
+            <div class="hero-stat-row">
+                <i class="fas fa-child hero-icon"></i>
+                <h2>114</h2>
+            </div>
+            <p>Children served</p>
+        </div>
+
+        <div class="hero-card" data-target="3">
+            <div class="hero-stat-row">
+                <i class="fas fa-hand-holding-heart hero-icon"></i>
+                <h2>$5000</h2>
+            </div>
+            <p>Donated</p>
+        </div>
+    </div>
+
+    <!-- Row 5 Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
@@ -194,10 +197,10 @@
                 <div class="contact-section">
                     <span class="contact-label">📬 Contact Us</span>
                     <div class="btn-group">
-                        <a href="#" class="social-btn youtube" target="_blank">
+                        <a href="https://www.youtube.com/@crfsweb8775" class="social-btn youtube" target="_blank">
                             <span class="icon">▶️</span> YouTube
                         </a>
-                        <a href="#" class="social-btn instagram" target="_blank">
+                        <a href="https://www.instagram.com/happycrfs/?igsh=cTJuMXF1b21uMXVv#" class="social-btn instagram" target="_blank">
                             <span class="icon">📸</span> Instagram
                         </a>
                     </div>
@@ -212,72 +215,6 @@
 
     <!-- JavaScript -->
     <script>
-        // Hero Cards
-        const cards = document.querySelectorAll(".hero-card");
-        const infoSection = document.getElementById("hero-info");
-        const infoContent = document.getElementById("hero-info-content");
-
-        let activeCard = null;
-
-        const content = {
-            1: `
-                <h2>Our Volunteers</h2>
-                <p>Fifteen dedicated volunteers serve our community with love and compassion. Each volunteer brings unique gifts and talents to our ministry.</p>
-                <ul>
-                    <li>Weekly food distribution</li>
-                    <li>Community prayer groups</li>
-                    <li>Children's activities</li>
-                </ul>
-            `,
-            2: `
-                <h2>Children Served</h2>
-                <p>Over 114 children have been impacted through our programs, including summer camps, after-school activities, and mentoring.</p>
-                <ul>
-                    <li>Summer Camp programs</li>
-                    <li>After-school tutoring</li>
-                    <li>Youth mentoring</li>
-                </ul>
-            `,
-            3: `
-                <h2>Community Donations</h2>
-                <p>$5,000 raised through generous donations from our community partners and supporters.</p>
-                <ul>
-                    <li>Food bank supplies</li>
-                    <li>School supplies for children</li>
-                    <li>Community events and programs</li>
-                </ul>
-            `
-        };
-
-        cards.forEach(card => {
-            card.addEventListener("click", () => {
-                const target = card.dataset.target;
-
-                if (activeCard === card) {
-                    card.classList.remove("active");
-                    infoSection.classList.remove("active");
-                    activeCard = null;
-                    return;
-                }
-
-                cards.forEach(c => c.classList.remove("active"));
-                card.classList.add("active");
-                infoContent.innerHTML = content[target];
-                infoSection.classList.add("active");
-                activeCard = card;
-            });
-        });
-
-        // Active nav link
-        const navLinks = document.querySelectorAll('.nav-right a');
-        
-        navLinks.forEach(link => {
-            link.addEventListener('click', function(e) {
-                navLinks.forEach(l => l.classList.remove('active'));
-                this.classList.add('active');
-            });
-        });
-
         // Newsletter Form
         document.querySelector('.newsletter-form').addEventListener('submit', function(e) {
             e.preventDefault();
