@@ -33,7 +33,37 @@
         </nav>
     </header>
 
-    <!-- Ministry Page Content Goes Here -->
+    <!-- Row 2 Services -->
+    <section class="services-page">
+        <!-- Full-Width Hero Image -->
+        <div class="services-hero-full">
+            <img src="../images/group.jpg" alt="Christian Respite Family Service" class="services-hero-full-img">
+            <div class="services-hero-full-overlay">
+                <div class="container">
+                    <h1>What We Offer</h1>
+                    <p>Christian Respite Family Service offers a wide range of support for children and youth with special needs. We also have a fellowship program offered to adults. We are equipped to assist people with autism, selective mutism, a range of social-emotional and behavioural issues, and other forms of disabilities.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Categories & Content -->
+        <div class="container">
+            <!-- Category Buttons -->
+            <div class="services-categories">
+                <button class="category-btn active" data-target="overview">Overview</button>
+                <button class="category-btn" data-target="mentorship">Mentorship</button>
+                <button class="category-btn" data-target="tutoring">Private Tutoring</button>
+                <button class="category-btn" data-target="respite">Respite Services</button>
+            </div>
+
+            <!-- Content Display Area -->
+            <div class="services-content-display">
+                <div id="service-content" class="service-content-box">
+                    <!-- Content will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Footer -->
     <footer class="footer">
@@ -60,6 +90,105 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        // Service content data
+        const serviceData = {
+            overview: {
+                title: "Christian Respite Family Service",
+                content: `
+                    <p>Christian Respite Family Service offers a wide range of support for children and youth with special needs. 
+                        We also have a fellowship program offered to adults.​ 
+                        We are equipped to assist persons with autism, selective mutism, a range of social-emotional and behavioral issues, and other forms of disabilities.</p>
+                    <p>A list of services we currently offer include: mentorship, private tutoring, counseling and therapy, spiritual guidance, children and parent fellowships, care groups and additional respite services.</p>
+                `
+            },
+            mentorship: {
+                title: "Mentorship Opportunities",
+                content: `
+                    <p>We offer mentorship opportunities for children and youth volunteers. 
+                        Great exemplary role models are often rare as seen in much of the content that’s easily distributed today on the internet, magazines, music, movies and social media apps. 
+                        Our mentorship option therefore sets a model by providing advice, emotional support, leadership training, and resources to assist child development and youths with their planning of future career goals.</p>
+                `
+            },
+            tutoring: {
+                title: "Adapting to your child’s needs",
+                content: `
+                    <p>One of the toughest challenges many public schools are facing is the lack of manpower and resources to properly assist children and youth with special needs. Since conception, CRFS has been in the business of tutoring students attending the Richmond School District programs to individual families looking for affordable and effective solutions in K-12 academics and behavioral support. We adapt to your child's needs, supporting them in accordance to the BC school curriculum as well as providing additional resources to help them succeed in school.</p>
+        
+                    <p><strong>Credentials & Certification:</strong></p>
+                    <p>Our team of tutors consists of university students and school educators with several years of teaching experience. Those certified by RCD are equipped to handle respite services as well.</p>
+                    
+                    <p><strong>Family Interview</strong></p>
+                    <p>A brief meeting held in-person between tutor and family for the purpose of introductions as well as to understand the parent's concerns and needs for their child. The tutor will then be assigned to the child who will work with them on the focus areas as specified by the parent or school as well as work to improve their socio-emotional functioning if necessary.</p>
+                    
+                    <p><strong>Adaptive Teaching</strong></p>
+                    <p>Our tutors utilize various styles of teaching such as games, music and visual art. All material we provide will be appropriate for their grade level and instruction will be based on student's learning ability and pace.</p>
+                    
+                    <p><strong>Collaboration and Feedback</strong></p>
+                    <p>We highly encourage parents to be a part of their child's learning process by working together with our tutor in providing feedback on academic and behavioral progress. This allows us to establish an active line of communication and helps us to identify specific areas that need to be addressed or improved on.</p>
+                    
+                    <p><strong>School Conferences</strong></p>
+                    <p>Upon request, we can set up email correspondence and attend conferences with your child's teachers and EAs to gauge progress and gather additional feedback to cater teaching and material.</p>
+                    
+                    <p><strong>Scheduling</strong></p>
+                    <p>As a rule of thumb, we generally offer 1-2 hour tutoring sessions per child. Depending on their learning needs, we may suggest 2 or more sessions a week. Availability, location and cost is arranged and discussed during family interviews.</p>
+                `
+            },
+            respite: {
+                title: "A Tradesman For Any Size Job",
+                content: `
+                    <p>Our organization provides Respite and First Aid training for committed volunteers and workers. Through RCD, we receive certification to provide respite services to the community.</p>
+                    <ul>
+                        <li>Assist families with applications for social welfare and funding.</li>
+                        <li>Accompany individuals for medical appointments and check-ups.</li>
+                        <li>Provide translator (English, Cantonese, Mandarin) for meetings.</li>
+                        <li>Transportation.</li>
+                    </ul>
+                `
+            }
+        };
+
+        // Get elements
+        const buttons = document.querySelectorAll('.category-btn');
+        const contentDisplay = document.getElementById('service-content');
+
+        // Set default content (Overview)
+        function setDefaultContent() {
+            const defaultData = serviceData['overview'];
+            contentDisplay.innerHTML = `
+                <h2>${defaultData.title}</h2>
+                ${defaultData.content}
+            `;
+        }
+        setDefaultContent();
+
+        // Add click event to each button
+        buttons.forEach(button => {
+            button.addEventListener('click', function() {
+                // Remove active class from all buttons
+                buttons.forEach(btn => btn.classList.remove('active'));
+                // Add active class to clicked button
+                this.classList.add('active');
+
+                // Get the target content
+                const target = this.getAttribute('data-target');
+                const data = serviceData[target];
+
+                // Update the content with animation
+                if (data) {
+                    contentDisplay.style.opacity = '0';
+                    setTimeout(() => {
+                        contentDisplay.innerHTML = `
+                            <h2>${data.title}</h2>
+                            ${data.content}
+                        `;
+                        contentDisplay.style.opacity = '1';
+                    }, 200);
+                }
+            });
+        });
+    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
