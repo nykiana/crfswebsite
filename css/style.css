@@ -863,6 +863,360 @@ header {
     margin-top: 15px;
 }
 
+/* ===== SUMMER CAMP - HERO PANEL ===== */
+.camp-panel {
+    position: relative;
+    width: 100%;
+    min-height: 500px;
+    padding: 80px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #EEEEEE;
+    background-image: url('../images/camp.jpg');
+    background-size: cover;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    text-align: center;
+}
+
+.camp-panel::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(250, 249, 238, 0.75);
+    z-index: 0;
+}
+
+.camp-panel .container {
+    position: relative;
+    width: 100%;
+    z-index: 1;
+}
+
+.camp-panel h1 {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    color: #4a5c42;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+/* ===== SUMMER CAMP - DETAILS PANEL ===== */
+.camp-info {
+    width: 100%;
+    padding: 80px 0;
+    background: #FAF9EE;
+}
+
+.camp-info .split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.camp-info .split-image img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    display: block;
+}
+
+.camp-info ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.camp-info ul li {
+    position: relative;
+    padding: 14px 0 14px 34px;
+    font-size: 1.05rem;
+    color: #4a4a4a;
+    line-height: 1.7;
+    border-bottom: 1px solid #DCCFC0;
+}
+
+.camp-info ul li::before {
+    content: '✦';
+    position: absolute;
+    left: 0;
+    top: 14px;
+    color: #A2AF9B;
+    font-size: 1.1rem;
+}
+
+.camp-info ul li:last-child {
+    border-bottom: none;
+}
+
+/* ===== SUMMER CAMP - GALLERY ===== */
+.gallery-panel {
+    padding: 0 0 80px;
+}
+
+.gallery-layout {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+}
+
+.gallery-tabs {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex-shrink: 0;
+    padding-top: 4px;
+}
+
+.gallery-tab {
+    background: #EEEEEE;
+    color: #4a4a4a;
+    border: 2px solid #DCCFC0;
+    border-radius: 12px;
+    padding: 10px 24px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: 0.3s;
+    font-family: inherit;
+}
+
+.gallery-tab.active {
+    background: #A2AF9B;
+    color: #FAF9EE;
+    border-color: #A2AF9B;
+}
+
+.gallery-tab:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.gallery-stage {
+    flex: 1;
+    min-width: 0;
+    position: relative;
+}
+
+.gallery-pane {
+    display: none;
+}
+
+.gallery-pane.active {
+    display: block;
+    position: relative;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.gallery-grid.anim-next {
+    animation: gallerySlideNext 0.35s ease;
+}
+
+.gallery-grid.anim-prev {
+    animation: gallerySlidePrev 0.35s ease;
+}
+
+@keyframes gallerySlideNext {
+    from {
+        transform: translateX(60px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes gallerySlidePrev {
+    from {
+        transform: translateX(-60px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.gallery-item {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    margin: 0;
+    cursor: zoom-in;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #EEEEEE;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.gallery-item.gallery-empty {
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+.gallery-item video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.gallery-item .gallery-play {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.35);
+    color: #FAF9EE;
+    font-size: 3rem;
+    transition: background 0.3s ease;
+    pointer-events: none;
+}
+
+.gallery-item:hover .gallery-play {
+    background: rgba(0, 0, 0, 0.45);
+}
+
+.gallery-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.gallery-nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 5;
+    background: #A2AF9B;
+    color: #FAF9EE;
+    border: none;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    font-size: 1.4rem;
+    line-height: 1;
+    padding: 0;
+    cursor: pointer;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.gallery-nav-btn svg {
+    display: block;
+}
+
+.gallery-nav-btn.prev {
+    left: 4px;
+}
+
+.gallery-nav-btn.next {
+    right: 4px;
+}
+
+.gallery-nav-btn:hover:not(:disabled) {
+    background: #8a9a82;
+}
+
+.gallery-nav-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.gallery-page-info {
+    font-size: 1rem;
+    color: #4a4a4a;
+    font-weight: 600;
+}
+
+.gallery-modal .modal-content {
+    position: relative;
+    background: transparent;
+    border: none;
+}
+
+.gallery-modal .gallery-close {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    z-index: 10;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.6);
+    color: #FAF9EE;
+    border: none;
+    border-radius: 50%;
+    font-size: 1.4rem;
+    line-height: 1;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.gallery-modal .gallery-close:hover {
+    background: rgba(0, 0, 0, 0.85);
+}
+
+.gallery-modal .modal-dialog {
+    max-width: 95vw;
+    margin: 1.75rem auto;
+}
+
+.gallery-lightbox-img {
+    max-width: 100%;
+    max-height: 85vh;
+    width: auto;
+    height: auto;
+    margin: 0 auto;
+    border-radius: 8px;
+    display: block;
+}
+
+.gallery-lightbox-video {
+    max-width: 100%;
+    max-height: 85vh;
+    width: auto;
+    height: auto;
+    margin: 0 auto;
+    border-radius: 8px;
+    display: block;
+}
+
+.gallery-caption {
+    text-align: center;
+    color: #FAF9EE;
+    margin-top: 10px;
+    margin-bottom: 0;
+    font-size: 1rem;
+}
+
 /* ===== MINISTRY - PROGRAM SPOTLIGHT ===== */
 .ministry-spotlight {
     width: 100%;
@@ -1745,6 +2099,21 @@ header {
     }
     .ministry-spotlight.reversed .split-image {
         order: 0;
+    }
+    .camp-info .split {
+        grid-template-columns: 1fr;
+    }
+    .gallery-layout {
+        flex-direction: column;
+        gap: 20px;
+    }
+    .gallery-tabs {
+        flex-direction: row;
+        gap: 12px;
+    }
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
     }
     .contact-page {
         padding: 40px 0 60px;
