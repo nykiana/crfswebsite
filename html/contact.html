@@ -4,11 +4,12 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Ministry - Christian Respite Family Service</title>
+    <title>Contact - Christian Respite Family Service</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link href="../css/style.css" rel="stylesheet">
-    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="icon" type="image/svg+xml" href="../images/favicon.svg">
 </head>
 
 <body>
@@ -51,7 +52,7 @@
                             <span class="info-icon">💬</span>
                             <div>
                                 <h4>CRFS Inquiries</h4>
-                                <p>C​ecilia Yeung, Samuel Siu</p>
+                                <p>Cecilia Yeung, Samuel Siu</p>
                             </div>
                         </div>
                     </div>
@@ -81,7 +82,7 @@
                             <span class="info-icon">⛪</span>
                             <div>
                                 <h4>Church Address</h4>
-                                <p>T​rinity Lutheran Church. 7100 Granville Ave Richmond,BC. V6Y1N8</p>
+                                <p>Trinity Lutheran Church. 7100 Granville Ave Richmond,BC. V6Y1N8</p>
                             </div>
                         </div>
                     </div>
@@ -91,7 +92,7 @@
                             <span class="info-icon">📬</span>
                             <div>
                                 <h4>Mailing Address</h4>
-                                <p>​6993 Heather St. Vancouver, BC. V6P 3P5</p>
+                                <p>6993 Heather St. Vancouver, BC. V6P 3P5</p>
                             </div>
                         </div>
                     </div>
@@ -102,34 +103,85 @@
                     <h2>Send Us a Message</h2>
                     <form id="contactForm">
                         <div class="form-group">
-                            <label for="name">Your Name</label>
+                            <label for="name">Your Name <span class="required">*</span></label>
                             <input type="text" id="name" placeholder="Enter your full name" required>
                         </div>
 
                         <div class="form-group">
-                            <label for="email">Email Address</label>
+                            <label for="email">Email Address <span class="required">*</span></label>
                             <input type="email" id="email" placeholder="Enter your email address" required>
                         </div>
 
                         <div class="form-group">
-                            <label for="help">How would you like to help?</label>
+                            <label for="help">How would you like to help? <span class="required">*</span></label>
                             <input type="text" id="help" placeholder="e.g. Volunteer, Donate, Pray" required>
                         </div>
 
                         <div class="form-group">
-                            <label for="message">Tell us about you</label>
+                            <label for="message">Tell us about you <span class="required">*</span></label>
                             <textarea id="message" rows="5" placeholder="Share a bit about yourself..."></textarea>
                         </div>
 
                         <button type="submit" class="contact-submit-btn">
-                            <span>Donate Now</span>
-                            <i class="fas fa-arrow-right"></i>
+                            <span>Send Message</span>
+                            <i class="fas fa-paper-plane"></i>
                         </button>
                     </form>
                 </div>
             </div>
+
+            <!-- Donation Section -->
+            <div class="donation-section">
+                <h2>Make a Donation</h2>
+                <p>Donations are encouraged to help support us as a charitable, non-profit organization as we innovate and expand our programs and deliver ongoing services to children with disabilities. Tax receipts are issued for donations of $20 or more.</p>
+                
+                <div class="donation-methods">
+                    <div class="donation-method">
+                        <div class="donation-icon">💵</div>
+                        <h4>Cash</h4>
+                        <p>In-person cash donations accepted at our location</p>
+                        <button class="donate-btn" onclick="showCashPopup()">Learn More</button>
+                    </div>
+                    
+                    <div class="donation-method">
+                        <div class="donation-icon">📝</div>
+                        <h4>Cheque</h4>
+                        <p>Make cheques payable to Christian Respite Family Service</p>
+                        <button class="donate-btn" onclick="showChequePopup()">Get Address</button>
+                    </div>
+                    
+                    <div class="donation-method">
+                        <div class="donation-icon">💳</div>
+                        <h4>E-Transfer</h4>
+                        <p>Send e-transfers to our organization</p>
+                        <button class="donate-btn" onclick="showEmailPopup()">Get Email</button>
+                    </div>
+                    
+                    <div class="donation-method">
+                        <div class="donation-icon">🔗</div>
+                        <h4>Zeffy</h4>
+                        <p>Online donations through Zeffy</p>
+                        <a href="https://www.zeffy.com/en-CA/donation-form/donate-to-change-lives-3667" target="_blank" class="donate-btn">Donate with Zeffy</a>
+                    </div>
+                </div>
+
+                <!-- Thank You Message -->
+                <div class="donation-thankyou">
+                    <p>Thank you for your generosity! Every donation helps us continue serving children and families in need.</p>
+                </div>
+            </div>
         </div>
     </section>
+
+    <!-- Popup Modal -->
+    <div class="popup-overlay" id="donationPopup">
+        <div class="popup-content">
+            <button class="popup-close" onclick="closePopup()">&times;</button>
+            <div class="popup-body" id="popupBody">
+                <!-- Content loaded here -->
+            </div>
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer class="footer">
@@ -156,6 +208,97 @@
             </div>
         </div>
     </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Contact Form Handler - Creates draft email
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const help = document.getElementById('help').value;
+            const message = document.getElementById('message').value;
+            
+            const subject = encodeURIComponent('Inquiry from ' + name);
+            const body = encodeURIComponent(
+                'Hello,\n\n' +
+                'My name is ' + name + '.\n' +
+                'You can reach me at: ' + email + '\n\n' +
+                'I would like to help by: ' + help + '.\n\n' +
+                'Message:\n' + message + '\n\n' +
+                'Thank you,\n' +
+                name
+            );
+            
+            window.location.href = 'mailto:crfs.richmond@gmail.com?subject=' + subject + '&body=' + body;
+            this.reset();
+            alert('Thank you for reaching out! Your email draft has been opened. Please send it to complete your message.');
+        });
+
+        // Popup Functions
+        function showPopup(content) {
+            document.getElementById('popupBody').innerHTML = content;
+            document.getElementById('donationPopup').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closePopup() {
+            document.getElementById('donationPopup').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close popup when clicking outside
+        document.getElementById('donationPopup').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closePopup();
+            }
+        });
+
+        // Cash Popup
+        function showCashPopup() {
+            showPopup(`
+                <div class="popup-icon">💵</div>
+                <h3>Cash Donations</h3>
+                <p>We accept in-person cash donations at our location.</p>
+                <div class="popup-address">
+                    <strong>📍 Our Location</strong>
+                    <p>Trinity Lutheran Church<br>7100 Granville Ave<br>Richmond, BC V6Y1N8</p>
+                </div>
+                <button class="popup-btn" onclick="closePopup()">Got It</button>
+            `);
+        }
+
+        // Cheque Popup
+        function showChequePopup() {
+            showPopup(`
+                <div class="popup-icon">📝</div>
+                <h3>Cheque Donations</h3>
+                <p>Please make cheques payable to:</p>
+                <div class="popup-address highlight">
+                    <strong>Christian Respite Family Service</strong>
+                </div>
+                <p><strong>Mail to:</strong></p>
+                <div class="popup-address">
+                    <p>#4-9800 Odlin Rd.<br>Richmond, BC V6X 0C2</p>
+                </div>
+                <button class="popup-btn" onclick="closePopup()">Got It</button>
+            `);
+        }
+
+        // Email Popup
+        function showEmailPopup() {
+            showPopup(`
+                <div class="popup-icon">📧</div>
+                <h3>E-Transfer Donations</h3>
+                <p>Send your e-transfer to:</p>
+                <div class="popup-address highlight">
+                    <strong>crfs.richmond@gmail.com</strong>
+                </div>
+                <button class="popup-btn" onclick="closePopup()">Got It</button>
+            `);
+        }
+    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
