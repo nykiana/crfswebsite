@@ -1001,6 +1001,10 @@ header {
     position: relative;
 }
 
+.gallery-viewport {
+    position: relative;
+}
+
 .gallery-pane {
     display: none;
 }
