@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
+
 /* ===== RESET & BASE ===== */
 * {
     margin: 0;
@@ -6,7 +8,7 @@
 }
 
 body {
-    font-family: Verdana, sans-serif;
+    font-family: 'Montserrat', sans-serif;
     background-color: #FAF9EE;
     padding-top: 90px;
 }
@@ -100,13 +102,21 @@ header {
 
 /* ===== ROW 2 - CAROUSEL ===== */
 #myCarousel {
-    margin-bottom: 4rem;
+    margin-bottom: 0;
     margin-top: 0;
 }
 
 .carousel-item {
     height: 32rem;
     background-color: #DCCFC0;
+}
+
+.carousel-item::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1;
 }
 
 .carousel-img {
@@ -124,7 +134,7 @@ header {
 }
 
 .carousel-caption h1 {
-    font-family: Verdana, sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-size: 3rem;
     font-weight: bold;
     margin-bottom: 1rem;
@@ -162,18 +172,33 @@ header {
     bottom: 20px;
 }
 
-.carousel-indicators button {
+.carousel-indicators [data-bs-target] {
+    box-sizing: border-box;
+    flex: 0 0 auto;
     width: 12px;
     height: 12px;
     border-radius: 50%;
-    margin: 0 6px;
-    background-color: rgba(255, 255, 255, 0.5);
-    border: 2px solid transparent;
+    margin: 0 8px;
+    padding: 0;
+    background-color: transparent;
+    background-clip: padding-box;
+    border: 2px solid rgba(255, 255, 255, 0.85);
+    border-top: 2px solid rgba(255, 255, 255, 0.85);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.85);
+    box-shadow: none;
+    text-indent: -9999px;
+    opacity: 1;
+    transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
 }
 
-.carousel-indicators button.active {
-    background-color: #A2AF9B;
-    border-color: #FAF9EE;
+.carousel-indicators [data-bs-target]:hover {
+    border-color: #fff;
+    transform: scale(1.1);
+}
+
+.carousel-indicators [data-bs-target].active {
+    background-color: #fff;
+    border-color: #fff;
 }
 
 /* ===== ROW 3 - SERVICES SECTION ===== */
@@ -696,6 +721,11 @@ header {
 
 .director-card .director-bio {
     font-size: 0.9rem;
+}
+
+.director-card .director-bio.small {
+    font-size: 0.65rem;
+    line-height: 1.6;
 }
 
 /* ===== TESTIMONIAL ===== */
@@ -1381,7 +1411,7 @@ header {
     font-size: 1rem;
     cursor: pointer;
     transition: all 0.3s ease;
-    font-family: Verdana, sans-serif;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .category-btn:hover {
@@ -1574,7 +1604,7 @@ header {
     border: 2px solid #DCCFC0;
     border-radius: 10px;
     font-size: 1rem;
-    font-family: Verdana, sans-serif;
+    font-family: 'Montserrat', sans-serif;
     background: #FAF9EE;
     color: #2c2c2c;
     transition: all 0.3s ease;
@@ -1611,7 +1641,7 @@ header {
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
-    font-family: Verdana, sans-serif;
+    font-family: 'Montserrat', sans-serif;
     margin-top: 5px;
 }
 
@@ -1738,7 +1768,7 @@ header {
     transition: all 0.3s ease;
     border: none;
     cursor: pointer;
-    font-family: Verdana, sans-serif;
+    font-family: 'Montserrat', sans-serif;
     margin-top: auto;
     width: 100%;
     max-width: 160px;
@@ -1882,7 +1912,7 @@ header {
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
-    font-family: Verdana, sans-serif;
+    font-family: 'Montserrat', sans-serif;
     margin-top: 10px;
 }
 
